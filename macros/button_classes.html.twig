@@ -1,0 +1,12 @@
+{% macro button_classes(color, size, type, extra) %}
+{% if color == default %}{% set fcolor = '' %}
+{% elseif color == primary %}{% set fcolor = '' %}
+{% elseif color == info %}{% set fcolor = 'secondary' %}
+{% elseif color == warning %}{% set fcolor = 'alert' %}{% endif %}
+button {{ fcolor }}
+{% if size == 'extra-small' %}tiny
+{% elseif size == 'small' %}small
+{% elseif size == 'large' %}large
+{% elseif size == 'extra-large' %}large{% endif %}
+{{ type }} {{ extra }}
+{% endmacro %}

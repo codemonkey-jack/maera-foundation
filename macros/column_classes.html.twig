@@ -1,0 +1,12 @@
+{% macro column_classes(sizes) %}
+columns
+{% if sizes is iterable %}
+{% for size in sizes %}
+{% if size.mobile %} small-{{ size.mobile }}
+{% elseif size.tablet %} small-{{ size.tablet }}
+{% elseif size.medium %} medium-{{ size.medium }}
+{% elseif size.large %} large-{{ size.large }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endmacro %}

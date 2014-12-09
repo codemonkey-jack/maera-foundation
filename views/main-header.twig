@@ -1,0 +1,15 @@
+<div class="header hero">
+	<div class="row">
+		{% if sidebar.header %}
+			{% set logo_wrapper_class = 'large-3 medium-4' %}
+		{% endif %}
+		<div class="{{ logo_wrapper_class }} small-12 columns header-property-wrap">
+			<h2>{% include 'site-logo.twig' %}</h2>
+		</div>
+		{% if sidebar.header %}
+			<div class="large-9 medium-8 columns">
+				{{ sidebar.header }}
+			</div>
+		{% endif %}
+	</div>
+</div>

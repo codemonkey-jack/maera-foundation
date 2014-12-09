@@ -1,0 +1,16 @@
+{% from "row_open.html.twig" import row_open as row_open %}
+
+{{ row_open() }}
+  <div class='[maera_grid_col_12]'>
+    <form role="search" method="get" class="search-form" action="{{ site.url }}/">
+      {{ row_open('div', '', 'collapse') }}
+        <div class='[maera_grid_col_9]'>
+          <input type="search" class="search-field" placeholder="Search …" value="" name="s"  />
+        </div>
+        <div class='[maera_grid_col_3]'>
+          <input type="submit" class="search-submit button postfix" value="Search" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

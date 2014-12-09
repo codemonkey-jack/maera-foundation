@@ -1,0 +1,41 @@
+<nav class="top-bar" data-topbar role="navigation">
+	<ul class="title-area">
+		<li class="name"><h1><a href="{{ site.link }}">{{ site.name }}</a></h1></li>
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	</ul>
+	<section class="top-bar-section">
+		<ul class="left">
+			{% for item in menu.primary.items %}
+				{% if item.get_children %}
+					<li id="menu-item-{{item.ID}}" class="has-dropdown menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
+						<a href="#">{{ item.title }} <b class="caret"></b></a>
+						<ul class="dropdown">
+							{% for child in item.get_children %}
+								{% if child.get_children %}
+									<li id="menu-item-{{child.ID}}" class="has-dropdown menu-item menu-item-type-{{child.type}} menu-item-object-{{child.object}} menu-item-{{child.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
+										<a href="#">{{ child.title }} <b class="caret"></b></a>
+										<ul class="dropdown">
+											{% for grant_child in child.get_children %}
+												<li id="menu-item-{{grant_child.ID}}" class="menu-item menu-item-type-{{grant_child.type}} menu-item-object-{{grant_child.object}} menu-item-{{grant_child.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
+													<a href="{{ grant_child.get_path }}">{{ grant_child.title }}</a>
+												</li>
+											{% endfor %}
+										</ul>
+									</li>
+								{% else %}
+									<li id="menu-item-{{child.ID}}" class="menu-item menu-item-type-{{child.type}} menu-item-object-{{child.object}} menu-item-{{child.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
+										<a href="{{ child.get_path }}">{{ child.title }}</a>
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+				{% else %}
+					<li id="menu-item-{{item.ID}}" class="menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
+						<a href="{{item.link}}">{{ item.title }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</section>
+</nav>

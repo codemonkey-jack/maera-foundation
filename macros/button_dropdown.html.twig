@@ -1,0 +1,8 @@
+{% from 'button_classes.html.twig' import button_classes as button_classes %}
+{% macro button_dropdown(color, size, type, extra, label, content) %}
+{%set randomid = random(999) %}
+<button href="#" data-dropdown="{{ randomid }}" aria-controls="{{ randomid }}" aria-expanded="false" class="{{ button_classes(color, size, type) }} dropdown">
+{{ label }}
+</button>
+<div id="{{ randomid }}" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">{{ content }}</div>
+{% endmacro %}

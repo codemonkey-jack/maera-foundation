@@ -1,0 +1,63 @@
+#nav-toggle {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  background: #222;
+  padding: 1em;
+}
+
+#nav-toggle { cursor: pointer; padding: 20px 45px 26px 10px; }
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #fff;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  transition: all 500ms ease-in-out;
+}
+.move-right #nav-toggle span {
+  background-color: transparent;
+}
+.move-right #nav-toggle span:before, .move-right #nav-toggle span:after {
+  top: 0;
+}
+.move-right #nav-toggle span:before {
+  transform: rotate(45deg);
+}
+.move-right #nav-toggle span:after {
+  transform: rotate(-45deg);
+}
+
+.inner-wrap {
+  min-height: 100vh;
+}
+
+.top-bar #nav-toggle {
+  background: none;
+  padding: .5rem;
+  left: 0;
+  top: .7rem;
+}
+
+.top-bar #nav-toggle span,
+.top-bar #nav-toggle span::before,
+.top-bar #nav-toggle span::after {
+  width: 1.8125rem
+}
+
+.header.hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
