@@ -45,6 +45,20 @@ class Maera_Foundation_Customizer {
 			),
 		);
 
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'logo_max_width',
+			'label'    => __( 'Logo Maximum Width (1-12 columns)', 'maera_foundation' ),
+			'section'  => 'title_tagline',
+			'default'  => 3,
+			'priority' => 50,
+			'choices'  => array(
+				'min'  => 1,
+				'max'  => 12,
+				'step' => 1,
+			),
+		);
+
 		return $controls;
 
 	}
