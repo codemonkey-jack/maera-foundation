@@ -65,9 +65,11 @@ class Maera_ZF {
     */
     function requires() {
 
+        require_once( __DIR__ . '/includes/class-Maera_ZF_Timber.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Customizer.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Layout.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Styles.php');
+
     }
 
 	/**
