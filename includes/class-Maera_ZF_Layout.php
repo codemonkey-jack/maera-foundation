@@ -4,6 +4,11 @@ class Maera_ZF_Layout {
 
 	function __construct() {
 
+		// Disable the sidebar if layout is full-width.
+		if ( 0 == get_theme_mod( 'layout', 0 ) ) {
+			add_filter( 'maera/sidebar/primary', '__return_false' );
+		}
+
 		add_filter( 'maera/section_class/wrapper', array( $this, 'wrapper_class' ) );
 		add_filter( 'maera/section_class/content', array( $this, 'content_class' ) );
 		add_filter( 'maera/section_class/primary', array( $this, 'sidebar_class' ) );
@@ -42,4 +47,3 @@ class Maera_ZF_Layout {
 	}
 
 }
-$maera_zf_layout = new Maera_ZF_Layout();

@@ -8,7 +8,11 @@ class Maera_ZF {
 
         $this->requires();
 
-        $customizer = new Maera_ZF_Customizer();
+        $maera_zf_timber     = new Maera_ZF_Timber();
+        $maera_zf_customizer = new Maera_ZF_Customizer();
+        $maera_zf_layout     = new Maera_ZF_Layout();
+        $maera_zf_scripts    = new Maera_ZF_Scripts();
+        $maera_zf_styles     = new Maera_ZF_Styles();
 
         // Define the shell path to be used for views etc.
         if ( ! defined( 'MAERA_SHELL_PATH' ) ) {
@@ -17,11 +21,6 @@ class Maera_ZF {
 
         add_action( 'widgets_init', array( $this, 'widgets_init' ) );
         add_action( 'after_setup_theme', array( $this, 'setup' ) );
-
-		// Disable the sidebar if layout is full-width.
-		if ( 0 == get_theme_mod( 'layout', 0 ) ) {
-			add_filter( 'maera/sidebar/primary', '__return_false' );
-		}
 
         add_theme_support( 'infinite-scroll', array(
             'container' => 'content',

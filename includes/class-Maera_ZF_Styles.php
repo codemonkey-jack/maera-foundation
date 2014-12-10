@@ -26,4 +26,3 @@ class Maera_ZF_Styles {
 	}
 
 }
-$maera_zf_styles = new Maera_ZF_Styles();

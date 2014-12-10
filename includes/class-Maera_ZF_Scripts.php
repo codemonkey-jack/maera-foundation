@@ -30,4 +30,3 @@ class Maera_ZF_Scripts {
 	}
 
 }
-$maera_zf_scripts = new Maera_ZF_Scripts();
