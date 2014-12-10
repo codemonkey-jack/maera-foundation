@@ -18,7 +18,7 @@ class Maera_ZF_Customizer {
 	function create_section( $wp_customize ) {
 
 		$wp_customize->add_section( 'layout', array(
-			'title'    => __( 'Layout', 'maera_foundation' ),
+			'title'    => __( 'Layout', 'maera_zf' ),
 			'priority' => 999,
 		) );
 
@@ -34,7 +34,7 @@ class Maera_ZF_Customizer {
 			'type'     => 'radio',
 			'mode'     => 'image',
 			'setting'  => 'layout',
-			'label'    => __( 'Layout', 'maera_foundation' ),
+			'label'    => __( 'Layout', 'maera_zf' ),
 			'section'  => 'layout',
 			'priority' => 1,
 			'default'  => 0,
@@ -48,7 +48,7 @@ class Maera_ZF_Customizer {
 		$controls[] = array(
 			'type'     => 'slider',
 			'setting'  => 'logo_max_width',
-			'label'    => __( 'Logo Maximum Width (1-12 columns)', 'maera_foundation' ),
+			'label'    => __( 'Logo Maximum Width (1-12 columns)', 'maera_zf' ),
 			'section'  => 'title_tagline',
 			'default'  => 3,
 			'priority' => 50,

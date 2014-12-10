@@ -128,7 +128,7 @@ class Maera_ZF {
 		$after_title  = apply_filters( 'maera/widgets/title/after', '</h3>' );
 
 		register_sidebar( array(
-			'name'          => __( 'Header', 'maera_foundation' ),
+			'name'          => __( 'Header', 'maera_zf' ),
 			'id'            => 'header',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -148,7 +148,7 @@ class Maera_ZF {
 
         // Register wp_nav_menu() menu ( http://codex.wordpress.org/Function_Reference/register_nav_menus )
         register_nav_menus( array(
-            'offcanvas' => __( 'Off-Canvas', 'maera_foundation' )
+            'offcanvas' => __( 'Off-Canvas', 'maera_zf' )
         ) );
 
     }
@@ -159,8 +159,8 @@ class Maera_ZF {
     function scripts() {
 
 		// Foundation core
-		wp_register_style( 'maera_foundation', MAERA_FOUNDATION_SHELL_URL . '/assets/css/foundation.css' );
-		wp_enqueue_style( 'maera_foundation' );
+		wp_register_style( 'maera_zf', MAERA_FOUNDATION_SHELL_URL . '/assets/css/foundation.css' );
+		wp_enqueue_style( 'maera_zf' );
 
 		// Foundation icons
 		wp_register_style( 'maera_foundation_icons', MAERA_FOUNDATION_SHELL_URL . '/assets/foundation-icons/foundation-icons.css' );
