@@ -23,9 +23,6 @@ class Maera_ZF {
         add_action( 'after_setup_theme', array( $this, 'setup' ) );
         add_filter( 'timber_context', array( $this, 'timber_global_context' ) );
 
-        global $content_width;
-        $content_width = ( 0 == get_theme_mod( 'layout', 0 ) && is_active_sidebar( 'sidebar_primary' ) ) ? 1280 : 843;
-
 		// Disable the sidebar if layout is full-width.
 		if ( 0 == get_theme_mod( 'layout', 0 ) ) {
 			add_filter( 'maera/sidebar/primary', '__return_false' );
@@ -53,8 +50,6 @@ class Maera_ZF {
         );
         add_theme_support( 'custom-header', $header_args );
 
-        add_filter( 'maera/styles', array( $this, 'custom_header_css' ) );
-
     }
 
     /**
@@ -74,6 +69,7 @@ class Maera_ZF {
     */
     function requires() {
         require_once( __DIR__ . '/includes/class-Maera_ZF_Customizer.php');
+        require_once( __DIR__ . '/includes/class-Maera_ZF_Styles.php');
     }
 
     /**
@@ -173,19 +169,6 @@ class Maera_ZF {
         // Add our custom styles
         wp_register_style( 'maera_foundation_custom', MAERA_FOUNDATION_SHELL_URL . '/assets/css/style.css' );
         wp_enqueue_style( 'maera_foundation_custom' );
-
-    }
-
-    function custom_header_css( $styles ) {
-
-        $custom_header = get_header_image();
-
-        if ( $custom_header ) {
-            $styles .= '.header.hero{background-image:url("' . $custom_header . '");}';
-        }
-        $styles .= '.header.hero{color:#' . get_theme_mod( 'header_textcolor', '333333' ) . '}';
-
-        return $styles;
 
     }
 
