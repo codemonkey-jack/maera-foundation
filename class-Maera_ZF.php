@@ -1,6 +1,6 @@
 <?php
 
-class Maera_Foundation {
+class Maera_ZF {
 
     private static $instance;
 
@@ -8,7 +8,7 @@ class Maera_Foundation {
 
         $this->requires();
 
-        $customizer = new Maera_Foundation_Customizer();
+        $customizer = new Maera_ZF_Customizer();
 
         // Define the shell path to be used for views etc.
         if ( ! defined( 'MAERA_SHELL_PATH' ) ) {
@@ -73,7 +73,7 @@ class Maera_Foundation {
     * Include any required files
     */
     function requires() {
-        require_once( __DIR__ . '/includes/class-Maera_Foundation_Customizer.php');
+        require_once( __DIR__ . '/includes/class-Maera_ZF_Customizer.php');
     }
 
     /**

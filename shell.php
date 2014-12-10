@@ -12,7 +12,7 @@ define( 'MAERA_FOUNDATION_SHELL_URL', plugins_url( '', __FILE__ ) );
 define( 'MAERA_FOUNDATION_SHELL_PATH', dirname( __FILE__ ) );
 
 // Include the framework class
-require_once MAERA_FOUNDATION_SHELL_PATH . '/class-Maera_Foundation.php';
+require_once MAERA_FOUNDATION_SHELL_PATH . '/class-Maera_ZF.php';
 /**
  * Include the shell
  */
@@ -22,7 +22,7 @@ function maera_foundation_shell_include( $shells ) {
     $shells[] = array(
         'value' => 'foundation',
         'label' => 'Zurb Foundation',
-        'class' => 'Maera_Foundation',
+        'class' => 'Maera_ZF',
     );
 
     return $shells;

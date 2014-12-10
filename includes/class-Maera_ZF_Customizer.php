@@ -3,7 +3,7 @@
 /**
  *
  */
-class Maera_Foundation_Customizer {
+class Maera_ZF_Customizer {
 
 	function __construct() {
 
