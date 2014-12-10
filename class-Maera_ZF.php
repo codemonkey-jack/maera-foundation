@@ -18,7 +18,6 @@ class Maera_ZF {
         add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
         add_action( 'widgets_init', array( $this, 'widgets_init' ) );
         add_action( 'after_setup_theme', array( $this, 'setup' ) );
-        add_filter( 'timber_context', array( $this, 'timber_global_context' ) );
 
 		// Disable the sidebar if layout is full-width.
 		if ( 0 == get_theme_mod( 'layout', 0 ) ) {
@@ -65,22 +64,11 @@ class Maera_ZF {
     * Include any required files
     */
     function requires() {
+
         require_once( __DIR__ . '/includes/class-Maera_ZF_Customizer.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Layout.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Styles.php');
     }
-
-    /**
-    * Modify Timber global context
-    */
-    function timber_global_context( $data ) {
-
-        $data['menu']['offcanvas'] = has_nav_menu( 'offcanvas' ) ? new TimberMenu( 'offcanvas' ) : null;
-        return $data;
-
-    }
-
-
 
 	/**
 	 * Register sidebars
