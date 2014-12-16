@@ -1,11 +1,47 @@
-{% if menu.primary %}
-    {% if menu.offcanvas %}
-        {% include 'menu-primary-offcanvas.twig' %}
-    {% else %}
-        {% include 'menu-primary.twig' %}
-    {% endif %}
-{% endif %}
+{% from 'container_open.html.twig' import container_open as container_open %}
+{% from 'container_close.html.twig' import container_close as container_close %}
+{% from 'row_open.html.twig' import row_open as row_open %}
+{% from 'row_close.html.twig' import row_close as row_close %}
+{% from 'column_classes.html.twig' import column_classes as column_classes %}
+{% set logo_width_tablet = theme_mods.logo_max_width >= 4 ? 12 : theme_mods.logo_max_width * 2 %}
+{% set logo_width_medium = theme_mods.logo_max_width >= 6 ? 12 : theme_mods.logo_max_width * 2 %}
+{% set logo_width_large  = theme_mods.logo_max_width %}
+{% set widget_width_tablet = logo_width_tablet == 12 ? 12 : 12 - logo_width_tablet %}
+{% set widget_width_medium = logo_width_medium == 12 ? 12 : 12 - logo_width_medium %}
+{% set widget_width_large  = logo_width_large  == 12 ? 12 : 12 - logo_width_large %}
 
-{% if menu.offcanvas %}
-    {% include 'menu-offcanvas.twig' %}
-{% endif %}
+{% include 'head.twig' %}
+
+<body class="{{ body_class }}">
+
+    <a href="#content" class="sr-only skip-link screen-reader-text">{{ i18n.skiptomaincontent }}</a>
+
+    {% do action( 'get_header' ) %}
+
+    {% do action( 'maera/header/before', post.ID ) %}
+    {% if menu.offcanvas %}
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            {% if not menu.primary %}<a id="nav-toggle" class="left-off-canvas-toggle" href="#" ><span></span></a>{% endif %}
+        {% endif %}
+        {% if menu.primary %}
+            {% if menu.offcanvas %}{% include 'menu-primary-offcanvas.twig' %}
+            {% else %}{% include 'menu-primary.twig' %}{% endif %}
+        {% endif %}
+
+        {% if menu.offcanvas %}{% include 'menu-offcanvas.twig' %}{% endif %}
+
+        <div class="header hero">
+            <div class="row">
+                <div class="{{ column_classes( [{'tablet':logo_width_tablet},{'medium':logo_width_medium},{'large':logo_width_large}] ) }} header-property-wrap">
+                    <h2>{% include 'site-logo.twig' %}</h2>
+                </div>
+                {% if sidebar.header %}
+                    <div class="{{ column_classes( [{'tablet':widget_width_tablet},{'medium':widget_width_medium},{'large':widget_width_large}] ) }}">
+                        {{ sidebar.header }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% do action( 'maera/header/after', post.ID ) %}

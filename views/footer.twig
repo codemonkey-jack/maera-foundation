@@ -1,1 +1,15 @@
-<script>jQuery(document).foundation();</script>
+{% do action( 'maera/footer/before', post.ID ) %}
+<footer class="page-footer">
+	{% do action( 'maera/footer/start', post.ID ) %}
+	<script>jQuery(document).foundation();</script>
+	{% do action( 'maera/footer/end', post.ID ) %}
+</footer>
+{% do action( 'maera/footer/after', post.ID ) %}
+{% if menu.offcanvas %}
+	<a class="exit-off-canvas"></a>
+{% endif %}
+</div>
+</div>
+{{ function( 'wp_footer' ) }}
+</body>
+</html>
