@@ -109,6 +109,19 @@ class Maera_ZF_Customizer {
 			),
 		);
 
+		$post_types = get_post_types( array( 'public' => true ), 'names' );
+		$controls[] = array(
+			'type'        => 'multicheck',
+			'mode'        => 'checkbox',
+			'setting'     => 'feat_img_per_post_type',
+			'label'       => __( 'Disable featured images per post type.', 'maera_bootstrap' ),
+			'subtitle'    => __( 'CAUTION: This setting will also disable displaying the featured images on single posts as well.', 'maera_bootstrap' ),
+			'section'     => 'feat_archive',
+			'priority'    => 65,
+			'default'     => '',
+			'choices'     => $post_types,
+		);
+
 		return $controls;
 
 	}
