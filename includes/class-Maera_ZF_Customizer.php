@@ -27,10 +27,10 @@ class Maera_ZF_Customizer {
 			'priority' => 999,
 		) );
 
-		// $wp_customize->add_section( 'layout', array(
-		// 	'title'    => __( 'Layout', 'maera_zf' ),
-		// 	'priority' => 999,
-		// ) );
+		$wp_customize->add_section( 'feat_single', array(
+			'title'    => __( 'Featured Images for single posts', 'maera_zf' ),
+			'priority' => 999,
+		) );
 
 		}
 
@@ -122,6 +122,45 @@ class Maera_ZF_Customizer {
 			'choices'     => $post_types,
 		);
 
+		$controls[] = array(
+			'type'        => 'checkbox',
+			'setting'     => 'feat_img_post',
+			'label'       => __( 'Display Featured Images', 'maera_bootstrap' ),
+			'subtitle'    => __( 'Display featured Images on simgle posts.', 'maera_bootstrap' ),
+			'section'     => 'feat_single',
+			'priority'    => 60,
+			'default'     => 0,
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'feat_img_post_width',
+			'label'    => __( 'Featured Image Width', 'maera_bootstrap' ),
+			'subtitle' => __( 'Set to -1 for max width and 0 for original width. Default: -1', 'maera_bootstrap' ),
+			'section'  => 'feat_single',
+			'priority' => 62,
+			'default'  => -1,
+			'choices'  => array(
+				'min'  => -1,
+				'max'  => get_theme_mod( 'screen_large_desktop', 1200 ),
+				'step' => '1'
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'feat_img_post_height',
+			'label'    => __( 'Featured Image Height', 'maera_bootstrap' ),
+			'subtitle' => __( 'Set to 0 to use the original image proportions. Default: 0', 'maera_bootstrap' ),
+			'section'  => 'feat_single',
+			'priority' => 63,
+			'default'  => 0,
+			'choices'  => array(
+				'min'  => 0,
+				'max'  => get_theme_mod( 'screen_large_desktop', 1200 ),
+				'step' => '1'
+			),
+		);
 		return $controls;
 
 	}
