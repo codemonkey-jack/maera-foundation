@@ -25,6 +25,7 @@ class Maera_ZF {
         $maera_zf_layout     = new Maera_ZF_Layout();
         $maera_zf_scripts    = new Maera_ZF_Scripts();
         $maera_zf_styles     = new Maera_ZF_Styles();
+        $maera_zf_styles     = new Maera_ZF_Images();
 
         // Define the shell path to be used for views etc.
         if ( ! defined( 'MAERA_SHELL_PATH' ) ) {
@@ -80,6 +81,7 @@ class Maera_ZF {
         require_once( __DIR__ . '/includes/class-Maera_ZF_Layout.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Styles.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Scripts.php');
+        require_once( __DIR__ . '/includes/class-Maera_ZF_Images.php');
 
     }
 
