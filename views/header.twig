@@ -1,8 +1,8 @@
 {% from 'column_classes.html.twig' import column_classes as column_classes %}
 
-{% set logo_width_tablet = theme_mods.logo_max_width >= 4 ? 12 : theme_mods.logo_max_width * 2 %}
-{% set logo_width_medium = theme_mods.logo_max_width >= 6 ? 12 : theme_mods.logo_max_width * 2 %}
-{% set logo_width_large  = theme_mods.logo_max_width %}
+{% set logo_width_tablet = theme.theme_mod('logo_max_width', 3) >= 4 ? 12 : theme.theme_mod('logo_max_width', 3) * 2 %}
+{% set logo_width_medium = theme.theme_mod('logo_max_width', 3) >= 6 ? 12 : theme.theme_mod('logo_max_width', 3) * 2 %}
+{% set logo_width_large  = theme.theme_mod('logo_max_width', 3) %}
 {% set widget_width_tablet = logo_width_tablet == 12 ? 12 : 12 - logo_width_tablet %}
 {% set widget_width_medium = logo_width_medium == 12 ? 12 : 12 - logo_width_medium %}
 {% set widget_width_large  = logo_width_large  == 12 ? 12 : 12 - logo_width_large %}
