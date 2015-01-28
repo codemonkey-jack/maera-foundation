@@ -1,8 +1,5 @@
-{% from 'container_open.html.twig' import container_open as container_open %}
-{% from 'container_close.html.twig' import container_close as container_close %}
-{% from 'row_open.html.twig' import row_open as row_open %}
-{% from 'row_close.html.twig' import row_close as row_close %}
 {% from 'column_classes.html.twig' import column_classes as column_classes %}
+
 {% set logo_width_tablet = theme_mods.logo_max_width >= 4 ? 12 : theme_mods.logo_max_width * 2 %}
 {% set logo_width_medium = theme_mods.logo_max_width >= 6 ? 12 : theme_mods.logo_max_width * 2 %}
 {% set logo_width_large  = theme_mods.logo_max_width %}
@@ -14,7 +11,7 @@
 
 <body class="{{ body_class }}">
 
-    <a href="#content" class="sr-only skip-link screen-reader-text">{{ i18n.skiptomaincontent }}</a>
+    <a href="#content" class="skip-link screen-reader-text">{{ __( 'Skip to main content', 'maera_zf' ) }}</a>
 
     {% do action( 'get_header' ) %}
 

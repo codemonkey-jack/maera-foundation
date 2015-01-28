@@ -1,6 +1,4 @@
 {# SECONDARY SIDEBAR #}
-{% if sidebar.secondary %}
-	<aside id="sidebar-secondary" class="{{ 'sidebar'|apply_filters( 'maera/section_class/secondary' ) }}" role="complementary">
-		{{ sidebar.secondary }}
-	</aside>
-{% endif %}
+<aside id="sidebar-secondary" class="{{ 'sidebar'|apply_filters( 'maera/section_class/secondary' ) }}" role="complementary">
+	{{ sidebar.secondary }}
+</aside>

@@ -1,20 +1,17 @@
-{% from 'container_open.html.twig' import container_open as container_open %}
-{% from 'container_close.html.twig' import container_close as container_close %}
-{% from 'row_open.html.twig' import row_open as row_open %}
-{% from 'row_close.html.twig' import row_close as row_close %}
+{% import 'grid_classes.html.twig' as grid %}
 
 {% do action( 'maera/wrap/before', post.ID ) %}
-{{ container_open( 'div', 'wrap-main-section', 'wrap main-section' ) }}
+<div class="{{ grid.container() }} wrap main-section" id="wrap-main-section">
 	{% do action( 'maera/content/before', post.ID ) %}
 	<div class="content" id="content" itemprop="mainContentOfPage">
 		<div class="content-primary-wrapper {{ 'main'|apply_filters( 'maera/section_class/wrapper' ) }}">
 			{% do action( 'maera/main/before', post.ID ) %}
-			{% block main %}{{ __( 'Sorry, no content', 'maera' ) }}{% endblock %}
+			{% block main %}{{ __( 'Sorry, no content', 'maera_zf' ) }}{% endblock %}
 			{% do action( 'maera/main/after', post.ID ) %}
-			{% include 'sidebar-primary.twig' %}
+			{% include 'sidebar-primary.twig'|apply_filters('maera/sidebar_template') %}
 		</div>
 		{% include 'sidebar-secondary.twig' %}
 		<div class="clearfix"></div>
 	</div><!-- /#content -->
 	{% do action( 'maera/content/after' ) %}
-{{ container_close( 'div' ) }}
+</div>
