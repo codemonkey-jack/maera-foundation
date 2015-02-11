@@ -6501,3 +6501,11 @@ th.hide-for-touch {
 img.featured-image {
   float: left;
   margin-right: .5rem; }
+
+.entry-meta .vcard {
+  margin: 0;
+  border: none;
+  padding: 0; }
+
+.entry-meta {
+  margin-bottom: 1rem; }
