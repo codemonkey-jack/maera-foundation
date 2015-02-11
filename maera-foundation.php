@@ -96,7 +96,7 @@ class Maera_ZF {
 
 		register_sidebar( array(
 			'name'          => __( 'Header', 'maera_zf' ),
-			'id'            => 'header',
+			'id'            => 'sidebar_header',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title"',

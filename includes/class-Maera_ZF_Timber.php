@@ -12,6 +12,7 @@ class Maera_ZF_Timber {
 	function timber_global_context( $data ) {
 
 		$data['menu']['offcanvas'] = has_nav_menu( 'offcanvas' ) ? new TimberMenu( 'offcanvas' ) : null;
+		$data['sidebar']['header'] = Timber::get_widgets( 'sidebar_header' );
 		return $data;
 
 	}
