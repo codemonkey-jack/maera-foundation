@@ -33,7 +33,7 @@ class Maera_ZF_Styles {
 		$nav_bg_lum     = $nav_bg_obj->toLuminosity();
 		$nav_typo_color = '#' . $nav_bg_obj->getGrayscaleContrastingColor(10)->toHex();
 
-		$styles .= '.top-bar-section ul li > a { color: ' . $nav_typo_color . ';}';
+		$styles .= '.top-bar .name h1 a, .top-bar-section ul li > a { color: ' . $nav_typo_color . ';}';
 		$styles .= '#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after { background: ' . $nav_typo_color . ';}';
 
 		return $styles;
