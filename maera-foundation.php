@@ -103,6 +103,15 @@ class Maera_ZF {
 			'after_title'   => '</h3>',
 		) );
 
+    register_sidebar( array(
+      'name'          => __( 'Footer', 'maera_zf' ),
+      'id'            => 'sidebar_footer',
+      'before_widget' => '<section id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h3 class="widget-title"',
+      'after_title'   => '</h3>',
+    ) );
+
 		// Remove the secondary sidebar
 		unregister_sidebar( 'sidebar_secondary' );
 
