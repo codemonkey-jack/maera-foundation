@@ -10,7 +10,6 @@
 			{% do action( 'maera/main/after', post.ID ) %}
 			{% include 'sidebar-primary.twig'|apply_filters('maera/sidebar_template') %}
 		</div>
-		{% include 'sidebar-secondary.twig' %}
 		<div class="clearfix"></div>
 	</div><!-- /#content -->
 	{% do action( 'maera/content/after' ) %}
