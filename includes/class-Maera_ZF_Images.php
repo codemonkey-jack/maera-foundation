@@ -29,7 +29,7 @@ class Maera_ZF_Images {
 
 	/**
 	 * Disable featured images per post type.
-	 * This is a simple fanction that parses the array of disabled options from the customizer
+	 * This is a simple function that parses the array of disabled options from the customizer
 	 * and then sets their display to 0 if we've selected them in our array.
 	 */
 	function disable_feat_images_ppt() {
@@ -42,7 +42,7 @@ class Maera_ZF_Images {
 		$disabled = ( '' != $images_ppt ) ? explode( ',', $images_ppt ) : '';
 
 		// Get the default switch values for singulars and archives
-		$default = ( is_singular() ) ? get_theme_mod( 'feat_img_post', 0 ) : get_theme_mod( 'feat_img_archive', 0 );
+		$default = ( is_singular() ) ? get_theme_mod( 'feat_img_post', 0 ) : get_theme_mod( 'feat_img_archive', 1 );
 
 		// If the current post type exists in our array of disabled post types, then set its displaying to false
 		if ( $disabled ) {
