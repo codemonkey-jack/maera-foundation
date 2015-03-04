@@ -4778,6 +4778,9 @@ meta.foundation-mq-topbar {
       z-index: 98;
       margin-top: 2.8125rem; }
 
+.admin-bar .fixed {
+  top: 32px; }
+
 .top-bar {
   overflow: hidden;
   height: 2.8125rem;

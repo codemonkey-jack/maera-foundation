@@ -1,0 +1,17 @@
+{% if theme.theme_mod('navbar_search', 1) == 1 %}
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-form">
+      <form role="search" method="get" class="search-form" action="{{ site.url }}/">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="search" class="search-field" placeholder="Search …" value="" name="s"  />
+          </div>
+          <div class="large-4 small-3 columns">
+            <input type="submit" class="search-submit button expand" value="Search" />
+          </div>
+        </div>
+      </form>
+    </li>
+  </ul>
+{% endif %}

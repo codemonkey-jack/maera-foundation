@@ -4,16 +4,17 @@
 	</section>
 
 	<section class="right top-bar-section">
+		{% include 'menu-primary-searchform.twig' %}
 		<ul class="right">
 			{% for item in menu.primary.items %}
 				{% if item.get_children %}
 					<li id="menu-item-{{item.ID}}" class="has-dropdown menu-item menu-item-type-{{item.type}} menu-item-object-{{item.object}} menu-item-{{item.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
-						<a href="#">{{ item.title }} <b class="caret"></b></a>
+						<a href="#">{{ item.title }}</a>
 						<ul class="dropdown">
 							{% for child in item.get_children %}
 								{% if child.get_children %}
 									<li id="menu-item-{{child.ID}}" class="has-dropdown menu-item menu-item-type-{{child.type}} menu-item-object-{{child.object}} menu-item-{{child.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">
-										<a href="#"{{ child.title }} <b class="caret"></b></a>
+										<a href="#">{{ child.title }}</a>
 										<ul class="dropdown">
 											{% for grant_child in child.get_children %}
 												<li id="menu-item-{{grant_child.ID}}" class="menu-item menu-item-type-{{grant_child.type}} menu-item-object-{{grant_child.object}} menu-item-{{grant_child.ID}}{% if 'current-menu-item' in item.classes %} active{% endif %}">

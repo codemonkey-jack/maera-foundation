@@ -129,9 +129,48 @@ class Maera_ZF_Customizer {
 			'section'      => 'colors',
 			'default'      => '#333333',
 			'output'       => array(
-				'element'  => '.top-bar, .top-bar-section li:not(.has-form) a:not(.button)',
+				'element'  => '.top-bar, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section .has-form, .contain-to-grid.topbar',
 				'property' => 'background',
 			),
+		);
+
+		$controls[] = array(
+			'type'     => 'checkbox',
+			'setting'  => 'navbar_search',
+			'label'    => __( 'Display search form on the NavBar', 'maera_zf' ),
+			'section'  => 'nav',
+			'default'  => 1,
+			//'priority' => 26,
+		);
+
+		$controls[] = array(
+			'type'     => 'checkbox',
+			'mode'     => 'toggle',
+			'setting'  => 'navbar_width',
+			'label'    => __( 'Navbar width', 'maera_zf' ),
+			'subtitle' => __( 'Select between full-with(default) or contained-to-grid', 'maera_zf' ),
+			'section'  => 'nav',
+			'default'  => 0,
+		);
+
+		$controls[] = array(
+			'type'     => 'checkbox',
+			'mode'     => 'switch',
+			'setting'  => 'navbar_sticky',
+			'label'    => __( 'Sticky navbar?', 'maera_zf' ),
+			'subtitle' => __( 'Available only with a primary navigation selection.', 'maera_zf' ),
+			'section'  => 'nav',
+			'default'  => 0,
+		);
+
+		$controls[] = array(
+			'type'     => 'checkbox',
+			'mode'     => 'switch',
+			'setting'  => 'navbar_float',
+			'label'    => __( 'Float right', 'maera_zf' ),
+			'subtitle' => __( 'Available only with a primary navigation selection.', 'maera_zf' ),
+			'section'  => 'nav',
+			'default'  => 0,
 		);
 
 		// $controls[] = array(
