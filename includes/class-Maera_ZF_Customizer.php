@@ -57,6 +57,25 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
+			'setting'  => 'layout_width',
+			'label'    => __( 'Select max-width of main row class. Default: 1000px', 'maera_zf' ),
+			'section'  => 'layout',
+			'default'  => 1000,
+			'priority' => 5,
+			'choices'  => array(
+				'min'  => 500,
+				'max'  => 1900,
+				'step' => 1,
+			),
+			'output' => array(
+				'element'  => '.row',
+				'property' => 'max-width',
+				'units'    => 'px',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
 			'setting'  => 'logo_max_width',
 			'label'    => __( 'Logo Maximum Width (1-12 columns)', 'maera_zf' ),
 			'section'  => 'title_tagline',
