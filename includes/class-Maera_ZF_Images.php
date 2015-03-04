@@ -14,7 +14,7 @@ class Maera_ZF_Images {
 	function featured_width() {
 		global $content_width;
 
-		$theme_mod = ( is_singular() ) ? get_theme_mod( 'feat_img_post_width', 1200 ) : get_theme_mod( 'feat_img_archive_width', 1200 );
+		$theme_mod = ( is_singular() ) ? get_theme_mod( 'feat_img_post_width', 1900 ) : get_theme_mod( 'feat_img_archive_width', 1900 );
 		$width     = ( '-1' == $theme_mod ) ? $content_width : $theme_mod;
 
 		return $width;
@@ -42,7 +42,7 @@ class Maera_ZF_Images {
 		$disabled = ( '' != $images_ppt ) ? explode( ',', $images_ppt ) : '';
 
 		// Get the default switch values for singulars and archives
-		$default = ( is_singular() ) ? get_theme_mod( 'feat_img_post', 0 ) : get_theme_mod( 'feat_img_archive', 1 );
+		$default = ( is_singular() ) ? get_theme_mod( 'feat_img_post', 0 ) : get_theme_mod( 'feat_img_archive', 0 );
 
 		// If the current post type exists in our array of disabled post types, then set its displaying to false
 		if ( $disabled ) {

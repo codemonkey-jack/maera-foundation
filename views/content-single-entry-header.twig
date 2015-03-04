@@ -1,0 +1,13 @@
+{# Get the image width and height from the customizer options #}
+{% set width  = theme.theme_mod('feat_img_post_width', '-1') %}
+{% set height = theme.theme_mod('feat_img_post_height', 0) %}
+
+<header class="entry-header">
+	{% if post.thumbnail and theme.theme_mod('feat_img_post', 0) %}
+		{% set width = theme.theme_mod('feat_img_post_width', '-1') == 0 ? post.thumbnail.width : thumbnail.width %}
+		{% set height = theme.theme_mod('feat_img_post_height', 0) == 0 ? post.thumbnail.height : thumbnail.height %}
+		<img class="featured-image" src="{{ post.thumbnail.src|resize(width, height) }}" srcset="{{ post.thumbnail.src|resize(width, height)|retina(1) }} 1x, {{ post.thumbnail.src|resize(width, height)|retina(2) }}  2x">
+	{% endif %}
+	<title itemprop="name">{{ post.title }}</title>
+	<h1 class="entry-title">{{ post.title|apply_filters( 'maera/title' ) }}</h1>
+</header>

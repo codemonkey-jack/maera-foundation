@@ -22,6 +22,11 @@ class Maera_ZF_Customizer {
 			'priority' => 999,
 		) );
 
+		$wp_customize->add_section( 'blog_options', array(
+			'title'    => __( 'Blog', 'maera_zf' ),
+			'priority' => 999,
+		) );
+
 		$wp_customize->add_section( 'feat_archive', array(
 			'title'    => __( 'Featured Images for archives', 'maera_zf' ),
 			'priority' => 999,
@@ -146,7 +151,7 @@ class Maera_ZF_Customizer {
 			'description' => __( 'Display featured Images on post archives ( such as categories, tags, month view etc ).', 'maera_zf' ),
 			'section'     => 'feat_archive',
 			'priority'    => 50,
-			'default'     => 1,
+			'default'     => 0,
 		);
 
 		$controls[] = array(
@@ -159,7 +164,7 @@ class Maera_ZF_Customizer {
 			'default'  => -1,
 			'choices'  => array(
 				'min'  => -1,
-				'max'  => 1200,
+				'max'  => 1900,
 				'step' => '1'
 			),
 		);
@@ -185,7 +190,7 @@ class Maera_ZF_Customizer {
 			'mode'        => 'checkbox',
 			'setting'     => 'feat_img_per_post_type',
 			'label'       => __( 'Disable featured images per post type.', 'maera_zf' ),
-			// 'subtitle'    => __( 'CAUTION: This setting will also disable displaying the featured images on single posts as well.', 'maera_zf' ),
+			'subtitle'    => __( 'CAUTION: This setting will also disable displaying the featured images on single posts as well.', 'maera_zf' ),
 			'section'     => 'feat_archive',
 			'priority'    => 65,
 			'default'     => '',
@@ -196,7 +201,7 @@ class Maera_ZF_Customizer {
 			'type'        => 'checkbox',
 			'setting'     => 'feat_img_post',
 			'label'       => __( 'Display Featured Images', 'maera_zf' ),
-			'subtitle'    => __( 'Display featured Images on simgle posts.', 'maera_zf' ),
+			'subtitle'    => __( 'Display featured Images on single posts.', 'maera_zf' ),
 			'section'     => 'feat_single',
 			'priority'    => 60,
 			'default'     => 0,
@@ -212,7 +217,7 @@ class Maera_ZF_Customizer {
 			'default'  => -1,
 			'choices'  => array(
 				'min'  => -1,
-				'max'  => 1200,
+				'max'  => 1900,
 				'step' => '1'
 			),
 		);
@@ -231,6 +236,47 @@ class Maera_ZF_Customizer {
 				'step' => '1'
 			),
 		);
+
+		$controls[] = array(
+			'type'        => 'radio',
+			'mode'        => 'buttonset',
+			'setting'     => 'blog_post_mode',
+			'label'       => __( 'Archives Display Mode', 'maera_bs' ),
+			'description' => __( 'Display the excerpt or the full post on post archives.', 'maera_bs' ),
+			'section'     => 'blog_options',
+			'priority'    => 1,
+			'default'     => 'excerpt',
+			'choices'     => array(
+				'excerpt' => __( 'Excerpt', 'maera_bs' ),
+				'full'    => __( 'Full Post', 'maera_bs' ),
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'post_excerpt_length',
+			'label'    => __( 'Post excerpt length', 'maera_zf' ),
+			'description' => __( 'Choose how many words should be used for post excerpt. Default: 55', 'maera_zf' ),
+			'section'  => 'blog_options',
+			'priority' => 10,
+			'default'  => 55,
+			'choices'  => array(
+				'min'  => 10,
+				'max'  => 150,
+				'step' => 1,
+			),
+		);
+
+		$controls[] = array(
+			'type'        => 'text',
+			'setting'     => 'post_excerpt_link_text',
+			'label'       => __( '"more" text', 'maera_zf' ),
+			'subtitle'    => __( 'Text to display in case of excerpt too long. Default: Continued', 'maera_zf' ),
+			'section'     => 'blog_options',
+			'priority'    => 12,
+			'default'     => __( 'Continued', 'maera_bs' ),
+		);
+
 		return $controls;
 
 	}
