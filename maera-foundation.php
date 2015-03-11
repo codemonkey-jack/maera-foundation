@@ -90,10 +90,6 @@ class Maera_ZF {
 	 */
 	function widgets_init() {
 
-		$class        = apply_filters( 'maera/widgets/class', '' );
-		$before_title = apply_filters( 'maera/widgets/title/before', '<h3 class="widget-title">' );
-		$after_title  = apply_filters( 'maera/widgets/title/after', '</h3>' );
-
 		register_sidebar( array(
 			'name'          => __( 'Header', 'maera_zf' ),
 			'id'            => 'sidebar_header',
@@ -114,6 +110,23 @@ class Maera_ZF {
 
 		// Remove the secondary sidebar
 		unregister_sidebar( 'sidebar_secondary' );
+
+    // Remove primary sidebar in order to re-enable it with some extra classes
+    unregister_sidebar( 'sidebar_primary' );
+
+    $class = '';
+    if ( get_theme_mod('widget_panel',0) == 1 ) {
+      $class = 'panel';
+    }
+
+    register_sidebar( array(
+  		'name'          => __( 'Primary Sidebar', 'maera' ),
+  		'id'            => 'sidebar_primary',
+  		'before_widget' => '<section id="%1$s" class="widget ' . $class . ' %2$s">',
+  		'after_widget'  => '</section>',
+      'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+  	) );
 
 	}
 

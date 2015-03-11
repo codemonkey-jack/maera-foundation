@@ -80,6 +80,33 @@ class Maera_ZF_Customizer {
 		);
 
 		$controls[] = array(
+			'type'     => 'select',
+			'setting'  => 'sidebar_width',
+			'label'    => __( 'Primary sidebar width', 'textdomain' ),
+			'subtitle' => __( 'Select the width of primary sidebar in a total of 12-column grid', 'maera_zf' ),
+			'section'  => 'layout',
+			'default'  => 4,
+			'priority' => 10,
+			'choices'  => array(
+				2 => __( '2/12', 'maera_zf' ),
+				3 => __( '3/12', 'maera_zf' ),
+				4 => __( '4/12', 'maera_zf' ),
+				5 => __( '5/12', 'maera_zf' ),
+				6 => __( '6/12', 'maera_zf' ),
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'checkbox',
+			'mode'     => 'switch',
+			'setting'  => 'widget_panel',
+			'label'    => __( 'Wrap primary sidebar widgets in panels', 'maera_zf' ),
+			'section'  => 'layout',
+			'default'  => 0,
+			'priority' => 15,
+		);
+
+		$controls[] = array(
 			'type'     => 'slider',
 			'setting'  => 'logo_max_width',
 			'label'    => __( 'Logo Maximum Width (1-12 columns)', 'maera_zf' ),
