@@ -6514,3 +6514,7 @@ img.featured-image {
 
 .entry-meta {
   margin-bottom: 1rem; }
+
+footer.page-footer {
+  padding: 2rem 0;
+  margin-top: 2rem; }
