@@ -29,7 +29,7 @@ class Maera_ZF_Layout {
 	 */
 	function content_class( $classes ) {
 
-		$layout    = get_theme_mod( 'layout', 1 );
+		$layout    = get_theme_mod( 'layout', 0 );
 		$alignment = ( 2 == get_theme_mod( 'layout' ) ) ? ' right' : null;
 		$columns_calc = 'large-';
 		$columns_calc .= 12 - get_theme_mod('sidebar_width',4);
