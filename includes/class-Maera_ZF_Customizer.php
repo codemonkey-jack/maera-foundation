@@ -62,6 +62,11 @@ class Maera_ZF_Customizer {
 			'panel'		 => 'backgrounds'
 		) );
 
+		$wp_customize->add_section( 'footer', array(
+			'title'    => __( 'Footer', 'maera_zf' ),
+			'priority' => 999,
+		) );
+
 		// $wp_customize->add_section( 'typography', array(
 		// 	'title'    => __( 'Typography', 'maera_zf' ),
 		// 	'priority' => 999,
@@ -382,6 +387,16 @@ class Maera_ZF_Customizer {
 			'output' => array(
 				'element'  => 'footer.page-footer',
 			),
+		);
+
+		$controls[] = array(
+			'type'     => 'textarea',
+			'label'    => __( 'Footer Text', 'maera_zf' ),
+			'setting'  => 'footer_text',
+			'default'  => '&copy; [year] [sitename]',
+			'section'  => 'footer',
+			'priority' => 12,
+			'subtitle' => __( 'The text that will be displayed in your footer. You can use [year] and [sitename] and they will be replaced appropriately. Default: &copy; [year] [sitename]', 'maera_zf' ),
 		);
 
 		return $controls;

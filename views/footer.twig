@@ -8,6 +8,13 @@
 		{% if sidebar.footer %}
 			<div class="{{ grid.row() }}">{{ sidebar.footer }}</div>
 		{% endif %}
+		<hr/>
+		<div class="{{ grid.container() }}" id="footer-copyright">
+			<div class="{{ grid.row() }}">
+				{{ theme.theme_mod('footer_text', '&copy; [year] [sitename]')|replace({'[year]': now|date('Y') ,'[sitename]': bloginfo('name') }) }}
+				<div class="clearfix"></div>
+			</div>
+		</div>
 	</div>
 	<script>jQuery(document).foundation();</script>
 	{% do action( 'maera/footer/end', post.ID ) %}
