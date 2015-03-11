@@ -19,23 +19,63 @@ class Maera_ZF_Customizer {
 
 		$wp_customize->add_section( 'layout', array(
 			'title'    => __( 'Layout', 'maera_zf' ),
-			'priority' => 999,
+			'priority' => 5,
+		) );
+
+		$wp_customize->add_panel( 'blog', array(
+			'title'    => __( 'Blog', 'maera_zf' ),
+			'priority' => 15,
 		) );
 
 		$wp_customize->add_section( 'blog_options', array(
-			'title'    => __( 'Blog', 'maera_zf' ),
+			'title'    => __( 'Blog options', 'maera_zf' ),
 			'priority' => 999,
+			'panel'		 => 'blog'
 		) );
 
 		$wp_customize->add_section( 'feat_archive', array(
 			'title'    => __( 'Featured Images for archives', 'maera_zf' ),
 			'priority' => 999,
+			'panel'		 => 'blog'
 		) );
 
 		$wp_customize->add_section( 'feat_single', array(
 			'title'    => __( 'Featured Images for single posts', 'maera_zf' ),
 			'priority' => 999,
+			'panel'		 => 'blog'
 		) );
+
+		$wp_customize->add_panel( 'backgrounds', array(
+			'title'    => __( 'Backgrounds', 'maera_zf' ),
+			'priority' => 10,
+		) );
+
+		$wp_customize->add_section( 'body_background', array(
+			'title'    => __( 'Body background', 'maera_zf' ),
+			'priority' => 999,
+			'panel'		 => 'backgrounds'
+		) );
+
+		$wp_customize->add_section( 'footer_background', array(
+			'title'    => __( 'Footer background', 'maera_zf' ),
+			'priority' => 999,
+			'panel'		 => 'backgrounds'
+		) );
+
+		// $wp_customize->add_section( 'typography', array(
+		// 	'title'    => __( 'Typography', 'maera_zf' ),
+		// 	'priority' => 999,
+		// ) );
+
+		// $wp_customize->add_section( 'social_links', array(
+		// 	'title'    => __( 'Social links', 'maera_zf' ),
+		// 	'priority' => 999,
+		// ) );
+
+		// $wp_customize->add_section( 'advanced', array(
+		// 	'title'    => __( 'Advanced', 'maera_zf' ),
+		// 	'priority' => 999,
+		// ) );
 
 		}
 
@@ -124,7 +164,7 @@ class Maera_ZF_Customizer {
 			'type'         => 'color',
 			'setting'      => 'nav_bg',
 			'label'        => __( 'Navbar Color', 'maera_zf' ),
-			'section'      => 'colors',
+			'section'      => 'nav',
 			'default'      => '#333333',
 			'output'       => array(
 				'element'  => '.top-bar, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section .has-form, .contain-to-grid.topbar',
@@ -302,6 +342,46 @@ class Maera_ZF_Customizer {
 			'section'     => 'blog_options',
 			'priority'    => 12,
 			'default'     => __( 'Continued', 'maera_bs' ),
+		);
+
+		$controls[] = array(
+			'type'         => 'background',
+			'setting'      => 'body_bg',
+			'label'        => __( 'Body background', 'maera_zf' ),
+			'section'      => 'body_background',
+			'default'      => array(
+				'color'    => '#ffffff',
+				'image'    => null,
+				'repeat'   => 'repeat',
+				'size'     => 'inherit',
+				'attach'   => 'inherit',
+				'position' => 'left-top',
+				'opacity'  => 100,
+			),
+			'priority' => 5,
+			'output' => array(
+				'element'  => 'body',
+			),
+		);
+
+		$controls[] = array(
+			'type'         => 'background',
+			'setting'      => 'footer_bg',
+			'label'        => __( 'Footer background', 'maera_zf' ),
+			'section'      => 'footer_background',
+			'default'      => array(
+				'color'    => '#ffffff',
+				'image'    => null,
+				'repeat'   => 'repeat',
+				'size'     => 'inherit',
+				'attach'   => 'inherit',
+				'position' => 'left-top',
+				'opacity'  => 100,
+			),
+			'priority' => 10,
+			'output' => array(
+				'element'  => 'footer.page-footer',
+			),
 		);
 
 		return $controls;
