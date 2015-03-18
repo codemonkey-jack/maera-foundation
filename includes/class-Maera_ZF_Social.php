@@ -4,7 +4,6 @@ class Maera_FZ_Social {
 
 	function __construct() {
 		add_action( 'maera/header/inside/begin', array( $this, 'social_links_navbar_content' ), 10 );
-		add_action( 'maera/sidebar/inside/end', array( $this, 'social_links_navbar_content' ), 10 );
 	}
 
 	public static function social_networks() {
@@ -28,11 +27,10 @@ class Maera_FZ_Social {
 			$link = get_theme_mod( $social_link . '_link', '' );
 
 			if ( '' != esc_url( $link ) ) {
-				// TODO use ZF markup
-				// $content .= '<a role="link" aria-labelledby="' . $label . '" href="' . $link . '" target="_blank" title="' . $label . '"><i class="dashicons dashicons-' . $social_link . '"></i>';
-				// $content .= 'dropdown' == get_theme_mod( 'navbar_social', 'off' ) ? '&nbsp;' . $label : '';
-				// $content .= '</a>';
-				// $content .= $separator;
+				$content .= '<a href="' . $link . '" target="_blank" title="' . $label . '"><i class="dashicons dashicons-' . $social_link . '"></i>';
+				$content .= 'dropdown' == get_theme_mod( 'navbar_social', 'off' ) ? '&nbsp;' . $label : '';
+				$content .= '</a>';
+				$content .= $separator;
 			}
 		}
 
@@ -48,9 +46,7 @@ class Maera_FZ_Social {
 	function social_links_navbar_content() {
 
 		$content = $before = $after = $separator = '';
-
 		$social_mode = get_theme_mod( 'navbar_social', 'off' );
-		$navbar_position = get_theme_mod( 'navbar_position', 'normal' );
 
 		// Early exit if social is set to off.
 		if ( 'off' == $social_mode ) {
@@ -59,17 +55,15 @@ class Maera_FZ_Social {
 
 		if ( 'inline' == $social_mode ) {
 
-			// TODO use ZF markup
-			// $before = ( $navbar_position == 'right-slide' || $navbar_position == 'left-slide' ) ? '<ul class="nav navbar-nav navbar-inline-socials"><li>' : '<ul class="nav navbar-nav navbar-right navbar-inline-socials"><li>';
-			// $after     = '</li></ul>';
-			// $separator = '</li><li>';
+			$before = '<ul class="right navbar-inline-socials"><li class="menu-item">';
+			$after     = '</li></ul>';
+			$separator = '</li><li class="menu-item">';
 
 		} elseif ( 'dropdown' == $social_mode ) {
 
-			// TODO use ZF markup
-			// $before = ( $navbar_position == 'right-slide' || $navbar_position == 'left-slide' ) ? '<ul class="nav navbar-nav navbar-dropdown-socials"><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false"><i class="dashicons dashicons-share"></i>&nbsp;<b class="caret"></b></a><ul class="dropdown-menu" role="menu"><li>' : '<ul class="nav navbar-nav navbar-right navbar-dropdown-socials"><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false"><i class="dashicons dashicons-share"></i>&nbsp;<b class="caret"></b></a><ul class="dropdown-menu" role="menu"><li>';
-			// $after     = '</li></ul></li></ul>';
-			// $separator = '</li><li>';
+			$before = '<ul class="right navbar-dropdown-socials"><li class="has-dropdown menu-item"><a href="#"><i class="dashicons dashicons-share"></i></a><ul class="dropdown"><li>';
+			$after     = '</li></ul></li></ul>';
+			$separator = '</li><li>';
 
 		}
 

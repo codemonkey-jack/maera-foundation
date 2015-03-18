@@ -658,7 +658,6 @@ class Maera_ZF_Customizer {
 			'mode'     => 'buttonset',
 			'setting'  => 'navbar_social',
 			'label'    => __( 'Display social links in the NavBar.', 'maera_zf' ),
-			'subtitle' => __( 'Social network links can be set-up in the "Social" section.', 'maera_bs' ),
 			'section'  => 'social',
 			'default'  => 'off',
 			'choices'  => array(

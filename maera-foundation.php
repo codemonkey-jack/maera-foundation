@@ -26,6 +26,7 @@ class Maera_ZF {
         $maera_zf_scripts    = new Maera_ZF_Scripts();
         $maera_zf_styles     = new Maera_ZF_Styles();
         $maera_zf_styles     = new Maera_ZF_Images();
+        $maera_zf_social     = new Maera_FZ_Social();
 
         // Define the shell path to be used for views etc.
         if ( ! defined( 'MAERA_SHELL_PATH' ) ) {
