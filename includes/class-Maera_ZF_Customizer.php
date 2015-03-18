@@ -102,10 +102,10 @@ class Maera_ZF_Customizer {
 			'panel'		 => 'typography'
 		) );
 
-		// $wp_customize->add_section( 'social_links', array(
-		// 	'title'    => __( 'Social links', 'maera_zf' ),
-		// 	'priority' => 999,
-		// ) );
+		$wp_customize->add_section( 'social', array(
+			'title'    => __( 'Social links', 'maera_zf' ),
+			'priority' => 999,
+		) );
 
 		// $wp_customize->add_section( 'advanced', array(
 		// 	'title'    => __( 'Advanced', 'maera_zf' ),
@@ -590,7 +590,7 @@ class Maera_ZF_Customizer {
 		$controls[] = array(
 			'type'     => 'select',
 			'setting'  => 'headers_font_family',
-			'label'    => __( 'Font-Family', 'maera_bs' ),
+			'label'    => __( 'Font-Family', 'maera_zf' ),
 			'section'  => 'typo_headers',
 			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
 			'priority' => 30,
@@ -604,7 +604,7 @@ class Maera_ZF_Customizer {
 		$controls[] = array(
 			'type'     => 'slider',
 			'setting'  => 'font_headers_weight',
-			'label'    => __( 'Font Weight.', 'maera_bs' ) . ' ' . __( 'Default: ', 'maera_bs' ) . 400,
+			'label'    => __( 'Font Weight.', 'maera_zf' ) . ' ' . __( 'Default: ', 'maera_zf' ) . 400,
 			'section'  => 'typo_headers',
 			'default'  => 400,
 			'priority' => 34,
@@ -622,8 +622,8 @@ class Maera_ZF_Customizer {
 		$controls[] = array(
 			'type'     => 'slider',
 			'setting'  => 'font_headers_size',
-			'label'    => __( 'Font Size', 'maera_bs' ) . ' ' . __( 'Default: ', 'maera_bs' ) . '1',
-			'description' => __( 'The size defined here applies to H5. All other header elements are calculated porportionally, based on the base font size.', 'maera_bs' ),
+			'label'    => __( 'Font Size', 'maera_zf' ) . ' ' . __( 'Default: ', 'maera_zf' ) . '1',
+			'description' => __( 'The size defined here applies to H5. All other header elements are calculated porportionally, based on the base font size.', 'maera_zf' ),
 			'section'  => 'typo_headers',
 			'default'  => 1,
 			'priority' => 35,
@@ -637,7 +637,7 @@ class Maera_ZF_Customizer {
 		$controls[] = array(
 			'type'     => 'slider',
 			'setting'  => 'font_headers_height',
-			'label'    => __( 'Line Height', 'maera_bs' ) . ' ' . __( 'Default: ', 'maera_bs' ) . '1.1',
+			'label'    => __( 'Line Height', 'maera_zf' ) . ' ' . __( 'Default: ', 'maera_zf' ) . '1.1',
 			'section'  => 'typo_headers',
 			'default'  => 1.1,
 			'priority' => 36,
@@ -651,6 +651,41 @@ class Maera_ZF_Customizer {
 				'property' => 'line-height'
 			)
 		);
+
+		// Social links
+		$controls[] = array(
+			'type'     => 'radio',
+			'mode'     => 'buttonset',
+			'setting'  => 'navbar_social',
+			'label'    => __( 'Display social links in the NavBar.', 'maera_zf' ),
+			'subtitle' => __( 'Social network links can be set-up in the "Social" section.', 'maera_bs' ),
+			'section'  => 'social',
+			'default'  => 'off',
+			'choices'  => array(
+				'off'      => __( 'Off', 'maera_zf' ),
+				'inline'   => __( 'Inline', 'maera_zf' ),
+				'dropdown' => __( 'Dropdown', 'maera_zf' ),
+			),
+			'priority' => 1,
+		);
+
+		$social_links = Maera_FZ_Social::social_networks();
+
+		$i = 0;
+		foreach ( $social_links as $social_link => $label ) {
+
+			$controls[] = array(
+				'type'     => 'text',
+				'setting'  => $social_link . '_link',
+				'label'    => $label . ' ' . __( 'link', 'maera_zf' ),
+				'section'  => 'social',
+				'default'  => '',
+				'priority' => 10 + $i,
+			);
+
+			$i++;
+
+		}
 
 		return $controls;
 

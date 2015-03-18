@@ -82,6 +82,7 @@ class Maera_ZF {
         require_once( __DIR__ . '/includes/class-Maera_ZF_Styles.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Scripts.php');
         require_once( __DIR__ . '/includes/class-Maera_ZF_Images.php');
+        include_once( __DIR__ . '/includes/class-Maera_ZF_Social.php' );
 
     }
 
