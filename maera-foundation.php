@@ -104,7 +104,7 @@ class Maera_ZF {
       'id'            => 'sidebar_footer',
       'before_widget' => '<section id="%1$s" class="widget columns small-12 large-4 %2$s">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3 class="widget-title"',
+      'before_title'  => '<h3 class="widget-title">',
       'after_title'   => '</h3>',
     ) );
 
