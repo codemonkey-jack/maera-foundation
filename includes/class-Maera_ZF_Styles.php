@@ -11,6 +11,7 @@ class Maera_ZF_Styles {
 
 		add_filter( 'maera/styles', array( $this, 'custom_header_css' ) );
 		add_filter( 'maera/styles', array( $this, 'navbar_css' ) );
+		add_filter( 'maera/styles', array( $this, 'headers_sizes' ) );
 
 	}
 
@@ -35,6 +36,20 @@ class Maera_ZF_Styles {
 
 		$styles .= '.top-bar .name h1 a, .top-bar-section ul li > a { color: ' . $nav_typo_color . ';}';
 		$styles .= '#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after { background: ' . $nav_typo_color . ';}';
+
+		return $styles;
+	}
+
+	function headers_sizes( $styles ) {
+
+		$font_base_size = get_theme_mod( 'font_base_size', 14 );
+
+		$styles .= 'h1, .h1 { font-size: ' . ( 2.6  * get_theme_mod( 'font_headers_size', 1 ) * $font_base_size ) . 'px; }';
+		$styles .= 'h2, .h2 { font-size: ' . ( 2.15 * get_theme_mod( 'font_headers_size', 1 ) * $font_base_size ) . 'px; }';
+		$styles .= 'h3, .h3 { font-size: ' . ( 1.7  * get_theme_mod( 'font_headers_size', 1 ) * $font_base_size ) . 'px; }';
+		$styles .= 'h4, .h4 { font-size: ' . ( 1.1  * get_theme_mod( 'font_headers_size', 1 ) * $font_base_size ) . 'px; }';
+		$styles .= 'h5, .h5 { font-size: ' . ( 1    * get_theme_mod( 'font_headers_size', 1 ) * $font_base_size ) . 'px; }';
+		$styles .= 'h6, .h6 { font-size: ' . ( .85  * get_theme_mod( 'font_headers_size', 1 ) * $font_base_size ) . 'px; }';
 
 		return $styles;
 	}

@@ -17,14 +17,16 @@ class Maera_ZF_Customizer {
 	 */
 	function create_section( $wp_customize ) {
 
+		// Layout
 		$wp_customize->add_section( 'layout', array(
 			'title'    => __( 'Layout', 'maera_zf' ),
 			'priority' => 5,
 		) );
 
+		// Blog
 		$wp_customize->add_panel( 'blog', array(
 			'title'    => __( 'Blog', 'maera_zf' ),
-			'priority' => 15,
+			'priority' => 20,
 		) );
 
 		$wp_customize->add_section( 'blog_options', array(
@@ -45,6 +47,7 @@ class Maera_ZF_Customizer {
 			'panel'		 => 'blog'
 		) );
 
+		// Backgrounds
 		$wp_customize->add_panel( 'backgrounds', array(
 			'title'    => __( 'Backgrounds', 'maera_zf' ),
 			'priority' => 10,
@@ -62,15 +65,42 @@ class Maera_ZF_Customizer {
 			'panel'		 => 'backgrounds'
 		) );
 
+		// Footer
 		$wp_customize->add_section( 'footer', array(
 			'title'    => __( 'Footer', 'maera_zf' ),
 			'priority' => 999,
 		) );
 
-		// $wp_customize->add_section( 'typography', array(
-		// 	'title'    => __( 'Typography', 'maera_zf' ),
-		// 	'priority' => 999,
-		// ) );
+		// Typography
+		$wp_customize->add_panel( 'typography', array(
+			'title' => __( 'Typography', 'maera_zf' ),
+			'description' => __( 'Set the site typography options', 'maera_zf' ),
+			'priority' => 30,
+		) );
+
+		$wp_customize->add_section( 'typo_base', array(
+			'title'    => __( 'Base', 'maera_zf' ),
+			'priority' => 10,
+			'panel'		 => 'typography'
+		) );
+
+		$wp_customize->add_section( 'typo_headers', array(
+			'title'    => __( 'Headers', 'maera_zf' ),
+			'priority' => 15,
+			'panel'		 => 'typography'
+		) );
+
+		$wp_customize->add_section( 'typo_nav', array(
+			'title'    => __( 'Navbar', 'maera_zf' ),
+			'priority' => 20,
+			'panel'		 => 'typography'
+		) );
+
+		$wp_customize->add_section( 'typo_footer', array(
+			'title'    => __( 'Footer', 'maera_zf' ),
+			'priority' => 30,
+			'panel'		 => 'typography'
+		) );
 
 		// $wp_customize->add_section( 'social_links', array(
 		// 	'title'    => __( 'Social links', 'maera_zf' ),
@@ -82,6 +112,10 @@ class Maera_ZF_Customizer {
 		// 	'priority' => 999,
 		// ) );
 
+		// TODO merge extra-header options
+		//$wp_customize->remove_control( 'header_image' );
+		//remove_theme_support( 'custom-header' );
+
 		}
 
 	/**
@@ -90,6 +124,7 @@ class Maera_ZF_Customizer {
 	 */
 	function create_settings( $controls ) {
 
+		// Layout
 		$controls[] = array(
 			'type'     => 'radio-image',
 			'settings' => 'layout',
@@ -149,6 +184,7 @@ class Maera_ZF_Customizer {
 			'priority' => 15,
 		);
 
+		// Title & tagline
 		$controls[] = array(
 			'type'     => 'slider',
 			'settings' => 'logo_max_width',
@@ -163,11 +199,12 @@ class Maera_ZF_Customizer {
 			),
 		);
 
+		// Colors
 		$controls[] = array(
 			'type'         => 'color',
 			'settings'     => 'nav_bg',
 			'label'        => __( 'Navbar Color', 'maera_zf' ),
-			'section'      => 'nav',
+			'section'      => 'colors',
 			'default'      => '#333333',
 			'output'       => array(
 				'element'  => '.top-bar, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section .has-form, .contain-to-grid.topbar',
@@ -175,6 +212,7 @@ class Maera_ZF_Customizer {
 			),
 		);
 
+		// Navigation
 		$controls[] = array(
 			'type'     => 'checkbox',
 			'settings' => 'navbar_search',
@@ -210,6 +248,7 @@ class Maera_ZF_Customizer {
 			'default'  => 0,
 		);
 
+		// Blog
 		$controls[] = array(
 			'type'        => 'checkbox',
 			'settings'    => 'feat_img_archive',
@@ -341,6 +380,7 @@ class Maera_ZF_Customizer {
 			'default'     => __( 'Continued', 'maera_bs' ),
 		);
 
+		// Backgrounds
 		$controls[] = array(
 			'type'         => 'background',
 			'settings'     => 'body_bg',
@@ -381,6 +421,7 @@ class Maera_ZF_Customizer {
 			),
 		);
 
+		// Footer
 		$controls[] = array(
 			'type'     => 'textarea',
 			'label'    => __( 'Footer Text', 'maera_zf' ),
@@ -389,6 +430,226 @@ class Maera_ZF_Customizer {
 			'section'  => 'footer',
 			'priority' => 12,
 			'description' => __( 'The text that will be displayed in your footer. You can use [year] and [sitename] and they will be replaced appropriately. Default: &copy; [year] [sitename]', 'maera_zf' ),
+		);
+
+		// Typography Navbar
+		$controls[] = array(
+			'type'     => 'select',
+			'setting'  => 'font_menus_font_family',
+			'label'    => __( 'Menus font', 'maera_zf' ),
+			'section'  => 'typo_nav',
+			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'priority' => 40,
+			'choices'  => Kirki_Fonts::get_font_choices(),
+			'output' => array(
+				'element'  => '.top-bar-section ul li > a, ul.off-canvas-list li a',
+				'property' => 'font-family',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_menus_weight',
+			'subtitle' => __( 'Font Weight', 'maera_zf' ),
+			'section'  => 'typo_nav',
+			'default'  => 400,
+			'priority' => 43,
+			'choices'  => array(
+				'min'  => 100,
+				'max'  => 800,
+				'step' => 100,
+			),
+			'output' => array(
+				'element'  => '.top-bar-section ul li > a, ul.off-canvas-list li a',
+				'property' => 'font-weight',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_menus_size',
+			'subtitle' => __( 'Font Size', 'maera_zf' ),
+			'section'  => 'typo_nav',
+			'default'  => 14,
+			'priority' => 44,
+			'choices'  => array(
+				'min'  => 10,
+				'max'  => 30,
+				'step' => 1,
+			),
+			'output' => array(
+				'element'  => '.top-bar-section ul li > a, ul.off-canvas-list li a',
+				'property' => 'font-size',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_menus_height',
+			'subtitle' => __( 'Line Height', 'maera_zf' ),
+			'section'  => 'typo_nav',
+			'default'  => 1.1,
+			'priority' => 25,
+			'choices'  => array(
+				'min'  => 0,
+				'max'  => 3,
+				'step' => 0.1,
+			),
+			'output' => array(
+				'element'  => '.top-bar-section ul li > a, ul.off-canvas-list li a',
+				'property' => 'line-height',
+			),
+		);
+
+		// Typography Base
+		$controls[] = array(
+			'type'     => 'select',
+			'setting'  => 'font_base_family',
+			'label'    => __( 'Base font', 'maera_zf' ),
+			'section'  => 'typo_base',
+			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'priority' => 20,
+			'choices'  => Kirki_Fonts::get_font_choices(),
+			'output' => array(
+				'element'  => 'body',
+				'property' => 'font-family',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'multicheck',
+			'setting'  => 'font_subsets',
+			'label'    => __( 'Google-Font subsets', 'maera_zf' ),
+			'description' => __( 'The subsets used from Google\'s API.', 'maera_bs' ),
+			'section'  => 'typo_base',
+			'default'  => 'latin',
+			'priority' => 22,
+			'choices'  => Kirki_Fonts::get_google_font_subsets(),
+			'output' => array(
+				'element'  => 'body',
+				'property' => 'font-subset',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_base_weight',
+			'label'    => __( 'Base Font Weight', 'maera_zf' ),
+			'section'  => 'typo_base',
+			'default'  => 400,
+			'priority' => 24,
+			'choices'  => array(
+				'min'  => 100,
+				'max'  => 900,
+				'step' => 100,
+			),
+			'output' => array(
+				'element'  => 'body',
+				'property' => 'font-weight',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_base_size',
+			'label'    => __( 'Base Font Size', 'maera_zf' ),
+			'section'  => 'typo_base',
+			'default'  => 14,
+			'priority' => 25,
+			'choices'  => array(
+				'min'  => 7,
+				'max'  => 48,
+				'step' => 1,
+			),
+			'output' => array(
+				'element'  => 'body',
+				'property' => 'font-size',
+				'units'    => 'px',
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_base_height',
+			'label'    => __( 'Base Line Height', 'maera_zf' ),
+			'section'  => 'typo_base',
+			'default'  => 1.43,
+			'priority' => 26,
+			'choices'  => array(
+				'min'  => 0,
+				'max'  => 3,
+				'step' => 0.01,
+			),
+			'output' => array(
+				'element'  => 'body',
+				'property' => 'line-height',
+			),
+		);
+
+		// Typography Headers
+		$controls[] = array(
+			'type'     => 'select',
+			'setting'  => 'headers_font_family',
+			'label'    => __( 'Font-Family', 'maera_bs' ),
+			'section'  => 'typo_headers',
+			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'priority' => 30,
+			'choices'  => Kirki_Fonts::get_font_choices(),
+			'output' => array(
+				'element'  => 'h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6',
+				'property' => 'font-family'
+			)
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_headers_weight',
+			'label'    => __( 'Font Weight.', 'maera_bs' ) . ' ' . __( 'Default: ', 'maera_bs' ) . 400,
+			'section'  => 'typo_headers',
+			'default'  => 400,
+			'priority' => 34,
+			'choices'  => array(
+				'min'  => 100,
+				'max'  => 900,
+				'step' => 100,
+			),
+			'output' => array(
+				'element'  => 'h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6',
+				'property' => 'font-weight'
+			)
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_headers_size',
+			'label'    => __( 'Font Size', 'maera_bs' ) . ' ' . __( 'Default: ', 'maera_bs' ) . '1',
+			'description' => __( 'The size defined here applies to H5. All other header elements are calculated porportionally, based on the base font size.', 'maera_bs' ),
+			'section'  => 'typo_headers',
+			'default'  => 1,
+			'priority' => 35,
+			'choices'  => array(
+				'min'  => 0.1,
+				'max'  => 3,
+				'step' => 0.01,
+			),
+		);
+
+		$controls[] = array(
+			'type'     => 'slider',
+			'setting'  => 'font_headers_height',
+			'label'    => __( 'Line Height', 'maera_bs' ) . ' ' . __( 'Default: ', 'maera_bs' ) . '1.1',
+			'section'  => 'typo_headers',
+			'default'  => 1.1,
+			'priority' => 36,
+			'choices'  => array(
+				'min'  => 0,
+				'max'  => 3,
+				'step' => 0.1,
+			),
+			'output' => array(
+				'element'  => 'h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6',
+				'property' => 'line-height'
+			)
 		);
 
 		return $controls;
