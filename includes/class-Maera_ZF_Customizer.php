@@ -107,10 +107,10 @@ class Maera_ZF_Customizer {
 			'priority' => 999,
 		) );
 
-		// $wp_customize->add_section( 'advanced', array(
-		// 	'title'    => __( 'Advanced', 'maera_zf' ),
-		// 	'priority' => 999,
-		// ) );
+		$wp_customize->add_section( 'advanced', array(
+			'title'    => __( 'Advanced', 'maera_zf' ),
+			'priority' => 999,
+		) );
 
 		// TODO merge extra-header options
 		//$wp_customize->remove_control( 'header_image' );
@@ -435,10 +435,10 @@ class Maera_ZF_Customizer {
 		// Typography Navbar
 		$controls[] = array(
 			'type'     => 'select',
-			'setting'  => 'font_menus_font_family',
+			'settings'  => 'font_menus_font_family',
 			'label'    => __( 'Menus font', 'maera_zf' ),
 			'section'  => 'typo_nav',
-			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'default'  => '"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;',
 			'priority' => 40,
 			'choices'  => Kirki_Fonts::get_font_choices(),
 			'output' => array(
@@ -449,8 +449,8 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_menus_weight',
-			'subtitle' => __( 'Font Weight', 'maera_zf' ),
+			'settings'  => 'font_menus_weight',
+			'description' => __( 'Font Weight', 'maera_zf' ),
 			'section'  => 'typo_nav',
 			'default'  => 400,
 			'priority' => 43,
@@ -467,8 +467,8 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_menus_size',
-			'subtitle' => __( 'Font Size', 'maera_zf' ),
+			'settings'  => 'font_menus_size',
+			'description' => __( 'Font Size', 'maera_zf' ),
 			'section'  => 'typo_nav',
 			'default'  => 14,
 			'priority' => 44,
@@ -485,10 +485,10 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_menus_height',
-			'subtitle' => __( 'Line Height', 'maera_zf' ),
+			'settings'  => 'font_menus_height',
+			'description' => __( 'Line Height', 'maera_zf' ),
 			'section'  => 'typo_nav',
-			'default'  => 1.1,
+			'default'  => 1.6,
 			'priority' => 25,
 			'choices'  => array(
 				'min'  => 0,
@@ -504,10 +504,10 @@ class Maera_ZF_Customizer {
 		// Typography Base
 		$controls[] = array(
 			'type'     => 'select',
-			'setting'  => 'font_base_family',
+			'settings'  => 'font_base_family',
 			'label'    => __( 'Base font', 'maera_zf' ),
 			'section'  => 'typo_base',
-			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'default'  => '"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;',
 			'priority' => 20,
 			'choices'  => Kirki_Fonts::get_font_choices(),
 			'output' => array(
@@ -518,7 +518,7 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'multicheck',
-			'setting'  => 'font_subsets',
+			'settings'  => 'font_subsets',
 			'label'    => __( 'Google-Font subsets', 'maera_zf' ),
 			'description' => __( 'The subsets used from Google\'s API.', 'maera_bs' ),
 			'section'  => 'typo_base',
@@ -533,7 +533,7 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_base_weight',
+			'settings'  => 'font_base_weight',
 			'label'    => __( 'Base Font Weight', 'maera_zf' ),
 			'section'  => 'typo_base',
 			'default'  => 400,
@@ -551,10 +551,10 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_base_size',
+			'settings'  => 'font_base_size',
 			'label'    => __( 'Base Font Size', 'maera_zf' ),
 			'section'  => 'typo_base',
-			'default'  => 14,
+			'default'  => 16,
 			'priority' => 25,
 			'choices'  => array(
 				'min'  => 7,
@@ -570,10 +570,10 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_base_height',
+			'settings'  => 'font_base_height',
 			'label'    => __( 'Base Line Height', 'maera_zf' ),
 			'section'  => 'typo_base',
-			'default'  => 1.43,
+			'default'  => 1.6,
 			'priority' => 26,
 			'choices'  => array(
 				'min'  => 0,
@@ -589,10 +589,10 @@ class Maera_ZF_Customizer {
 		// Typography Headers
 		$controls[] = array(
 			'type'     => 'select',
-			'setting'  => 'headers_font_family',
+			'settings'  => 'headers_font_family',
 			'label'    => __( 'Font-Family', 'maera_zf' ),
 			'section'  => 'typo_headers',
-			'default'  => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'default'  => '"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;',
 			'priority' => 30,
 			'choices'  => Kirki_Fonts::get_font_choices(),
 			'output' => array(
@@ -603,10 +603,10 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_headers_weight',
+			'settings'  => 'font_headers_weight',
 			'label'    => __( 'Font Weight.', 'maera_zf' ) . ' ' . __( 'Default: ', 'maera_zf' ) . 400,
 			'section'  => 'typo_headers',
-			'default'  => 400,
+			'default'  => 700,
 			'priority' => 34,
 			'choices'  => array(
 				'min'  => 100,
@@ -621,7 +621,7 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_headers_size',
+			'settings'  => 'font_headers_size',
 			'label'    => __( 'Font Size', 'maera_zf' ) . ' ' . __( 'Default: ', 'maera_zf' ) . '1',
 			'description' => __( 'The size defined here applies to H5. All other header elements are calculated porportionally, based on the base font size.', 'maera_zf' ),
 			'section'  => 'typo_headers',
@@ -636,7 +636,7 @@ class Maera_ZF_Customizer {
 
 		$controls[] = array(
 			'type'     => 'slider',
-			'setting'  => 'font_headers_height',
+			'settings'  => 'font_headers_height',
 			'label'    => __( 'Line Height', 'maera_zf' ) . ' ' . __( 'Default: ', 'maera_zf' ) . '1.1',
 			'section'  => 'typo_headers',
 			'default'  => 1.1,
@@ -656,7 +656,7 @@ class Maera_ZF_Customizer {
 		$controls[] = array(
 			'type'     => 'radio',
 			'mode'     => 'buttonset',
-			'setting'  => 'navbar_social',
+			'settings'  => 'navbar_social',
 			'label'    => __( 'Display social links in the NavBar.', 'maera_zf' ),
 			'section'  => 'social',
 			'default'  => 'off',
@@ -675,7 +675,7 @@ class Maera_ZF_Customizer {
 
 			$controls[] = array(
 				'type'     => 'text',
-				'setting'  => $social_link . '_link',
+				'settings'  => $social_link . '_link',
 				'label'    => $label . ' ' . __( 'link', 'maera_zf' ),
 				'section'  => 'social',
 				'default'  => '',
@@ -685,6 +685,27 @@ class Maera_ZF_Customizer {
 			$i++;
 
 		}
+
+		// Advanced
+		$controls[] = array(
+			'type'     => 'textarea',
+			'settings'  => 'css',
+			'label'    => __( 'Custom CSS', 'maera_zf' ),
+			'description' => __( 'You can write your custom CSS here. This code will appear in a script tag appended in the header section of the page.', 'maera_zf' ),
+			'section'  => 'advanced',
+			'priority' => 4,
+			'default'  => '',
+		);
+
+		$controls[] = array(
+			'type'     => 'textarea',
+			'settings'  => 'js',
+			'label'    => __( 'Custom JS', 'maera_zf' ),
+			'description' => __( 'You can write your custom JavaScript/jQuery here. The code will be included in a script tag appended to the bottom of the page.', 'maera_zf' ),
+			'section'  => 'advanced',
+			'priority' => 6,
+			'default'  => '',
+		);
 
 		return $controls;
 

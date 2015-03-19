@@ -6501,6 +6501,8 @@ th.hide-for-touch {
 .header.hero {
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 3rem;
   margin-bottom: 3rem; }
 
 img.featured-image {

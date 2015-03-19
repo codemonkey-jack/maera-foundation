@@ -4,6 +4,7 @@ class Maera_ZF_Scripts {
 
 	function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
+		add_action( 'wp_footer', array( $this, 'custom_js' ) );
 	}
 
 	/**
@@ -26,6 +27,18 @@ class Maera_ZF_Scripts {
 		// Add our custom styles
 		wp_register_style( 'maera_foundation_custom', MAERA_FOUNDATION_SHELL_URL . '/assets/css/style.css' );
 		wp_enqueue_style( 'maera_foundation_custom' );
+
+	}
+
+	/**
+	 * Implement the custom js field output and place it to the footer.
+	 */
+	function custom_js() {
+
+	$js = get_theme_mod( 'js', '' );
+		if ( ! empty( $js ) ) {
+			echo '<script id="advanced-custom-js">' . htmlspecialchars_decode($js) . '</script>';
+		}
 
 	}
 
