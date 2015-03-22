@@ -112,10 +112,6 @@ class Maera_ZF_Customizer {
 			'priority' => 999,
 		) );
 
-		// TODO merge extra-header options
-		//$wp_customize->remove_control( 'header_image' );
-		//remove_theme_support( 'custom-header' );
-
 		}
 
 	/**
@@ -256,7 +252,7 @@ class Maera_ZF_Customizer {
 			'help' 				=> __( 'Display featured Images on post archives ( such as categories, tags, month view etc ).', 'maera_zf' ),
 			'section'     => 'feat_archive',
 			'priority'    => 50,
-			'default'     => 0,
+			'default'     => 1,
 		);
 
 		$controls[] = array(
@@ -387,7 +383,7 @@ class Maera_ZF_Customizer {
 			'label'        => __( 'Body background', 'maera_zf' ),
 			'section'      => 'body_background',
 			'default'      => array(
-				'color'    => '#ffffff',
+				'color'    => '#fbfbfb',
 				'image'    => null,
 				'repeat'   => 'repeat',
 				'size'     => 'inherit',
@@ -489,7 +485,7 @@ class Maera_ZF_Customizer {
 			'description' => __( 'Line Height', 'maera_zf' ),
 			'section'  => 'typo_nav',
 			'default'  => 1.6,
-			'priority' => 25,
+			'priority' => 45,
 			'choices'  => array(
 				'min'  => 0,
 				'max'  => 3,

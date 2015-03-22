@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name:         Maera Foundation Shell
-Plugin URI:
+Plugin URI:          http://presscodes.com/downloads/maera-foundation-shell/
 Description:         A shell for the Maera theme implementing Zurb's Foundation framework.
 Version:             0.1-dev
 Author:              @aristath, @fovoc
-Author URI:          http://press.codes
+Author URI:          http://presscodes.com
 */
 
 
@@ -116,15 +116,15 @@ class Maera_ZF {
     // Remove primary sidebar in order to re-enable it with some extra classes
     unregister_sidebar( 'sidebar_primary' );
 
-    $class = '';
+    $classes = '';
     if ( get_theme_mod('widget_panel',0) == 1 ) {
-      $class = 'panel';
+      $classes .= 'panel ';
     }
 
     register_sidebar( array(
   		'name'          => __( 'Primary Sidebar', 'maera' ),
   		'id'            => 'sidebar_primary',
-  		'before_widget' => '<section id="%1$s" class="widget ' . $class . ' %2$s">',
+  		'before_widget' => '<section id="%1$s" class="widget ' . $classes . '%2$s">',
   		'after_widget'  => '</section>',
       'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',

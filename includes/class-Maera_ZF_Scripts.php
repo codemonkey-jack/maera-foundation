@@ -12,6 +12,9 @@ class Maera_ZF_Scripts {
 	*/
 	function scripts() {
 
+		// Foundation normalize
+		wp_register_style( 'maera_zf_normalize', MAERA_FOUNDATION_SHELL_URL . '/assets/css/normalize.css' );
+		wp_enqueue_style( 'maera_zf_normalize' );
 		// Foundation core
 		wp_register_style( 'maera_zf', MAERA_FOUNDATION_SHELL_URL . '/assets/css/foundation.css' );
 		wp_enqueue_style( 'maera_zf' );
@@ -22,7 +25,7 @@ class Maera_ZF_Scripts {
 
 		// Add Foundation required scripts
 		wp_enqueue_script( 'fastclick', MAERA_FOUNDATION_SHELL_URL . '/assets/vendor/fastclick.js', false );
-		wp_enqueue_script( 'foundation', MAERA_FOUNDATION_SHELL_URL . '/assets/foundation.min.js', 'jquery' );
+		wp_enqueue_script( 'foundation', MAERA_FOUNDATION_SHELL_URL . '/assets/js/foundation.js', 'jquery' );
 
 		// Add our custom styles
 		wp_register_style( 'maera_foundation_custom', MAERA_FOUNDATION_SHELL_URL . '/assets/css/style.css' );
