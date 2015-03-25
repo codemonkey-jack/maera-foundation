@@ -5,6 +5,7 @@
 
 	<section class="right top-bar-section">
 		{% include 'menu-primary-searchform.twig' %}
+		{% do action( 'maera/header/inside/begin') %}
 		<ul class="right">
 			{% for item in menu.primary.items %}
 				{% if item.get_children %}

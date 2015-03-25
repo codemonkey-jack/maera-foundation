@@ -172,7 +172,7 @@ class Maera_ZF_Customizer {
 		);
 
 		$controls[] = array(
-			'type'     => 'switch',
+			'type'     => 'checkbox',
 			'settings' => 'widget_panel',
 			'label'    => __( 'Wrap primary sidebar widgets in panels', 'maera_zf' ),
 			'section'  => 'layout',
@@ -290,7 +290,7 @@ class Maera_ZF_Customizer {
 			'type'        => 'multicheck',
 			'settings'    => 'feat_img_per_post_type',
 			'label'       => __( 'Disable featured images per post type.', 'maera_zf' ),
-			'description'    => __( 'CAUTION: This setting will also disable displaying the featured images on single posts as well.', 'maera_zf' ),
+			// 'description'    => __( 'CAUTION: This setting will also disable displaying the featured images on single posts as well.', 'maera_zf' ),
 			'section'     => 'feat_archive',
 			'priority'    => 65,
 			'default'     => '',

@@ -1,11 +1,12 @@
 {% set preview_readmode = theme.theme_mod('post_excerpt_link_text', __( 'Continued', 'maera_zf' )) %}
 {% set preview_length   = theme.theme_mod('post_excerpt_length', 55) %}
+{% set post_types_array = theme.theme_mod('feat_img_per_post_type')|split(',') %}
 
 {% if theme.theme_mod('blog_post_mode', 'excerpt') == 'full' %}
 	{{ post.content }}
 {% else %}
 	<div class="entry-summary" itemprop="description">
-		{% if post.thumbnail and theme.theme_mod('feat_img_archive', 1) %}
+		{% if post.thumbnail and theme.theme_mod('feat_img_archive', 1) and not (post.post_type in post_types_array) %}
 			{% set width = theme.theme_mod('feat_img_archive_width', '-1') == 0 ? post.thumbnail.width : thumbnail.width %}
 			{% set height = theme.theme_mod('feat_img_archive_height', 0) == 0 ? post.thumbnail.height : thumbnail.height %}
 			<a href="{{ post.link }}">
