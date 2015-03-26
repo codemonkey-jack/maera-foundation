@@ -1,3 +1,7 @@
+article {
+  margin: 20px 0;
+  padding: 20px 0; }
+
 #nav-toggle {
   position: absolute;
   left: -1px;
@@ -54,7 +58,7 @@
 
 img.featured-image {
   float: left;
-  margin-right: .5rem; }
+  margin: 0 1rem 1rem 0; }
 
 .entry-meta .vcard {
   margin: 0;
@@ -70,3 +74,11 @@ footer.page-footer {
 
 .admin-bar .fixed {
   top: 32px; }
+
+ul.off-canvas-list li a,
+ul.off-canvas-list li label {
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.top-bar-section > ul > .divider,
+.top-bar-section > ul > [role="separator"] {
+  border-right: 1px solid rgba(0, 0, 0, 0.2); }

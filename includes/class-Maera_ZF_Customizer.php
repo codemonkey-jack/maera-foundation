@@ -203,7 +203,7 @@ class Maera_ZF_Customizer {
 			'section'      => 'colors',
 			'default'      => '#333333',
 			'output'       => array(
-				'element'  => '.top-bar, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section .has-form, .contain-to-grid.topbar',
+				'element'  => '.top-bar, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section .has-form, .contain-to-grid.topbar, .left-off-canvas-menu, ul.off-canvas-list li label',
 				'property' => 'background',
 			),
 		);
