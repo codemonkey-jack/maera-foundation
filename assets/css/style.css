@@ -82,3 +82,22 @@ ul.off-canvas-list li label {
 .top-bar-section > ul > .divider,
 .top-bar-section > ul > [role="separator"] {
   border-right: 1px solid rgba(0, 0, 0, 0.2); }
+
+li.comment {
+  list-style-type: none; }
+
+.comment-metadata time {
+  font-size: small; }
+
+ul.pagination > li > a.current {
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
+
+input#submit {
+  border-width: 0;
+  margin: 0 0 1.25rem;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  color: #FFFFFF; }
