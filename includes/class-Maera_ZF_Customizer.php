@@ -376,6 +376,29 @@ class Maera_ZF_Customizer {
 			'default'     => __( 'Continued', 'maera_bs' ),
 		);
 
+		$controls[] = array(
+	    'type'        => 'sortable',
+	    'setting'     => 'meta_config',
+	    'label'       => __( 'Post Meta elements', 'maera_zf' ),
+			'help'        => __( 'Click the "eye" to toggle the section from being displayed.', 'maera_zf' ),
+	    'section'     => 'blog_options',
+	    'default'     => array(
+	        'date',
+	        'category',
+	        'author',
+					'comments'
+	    ),
+	    'priority'    => 13,
+	    'choices'     => array(
+	        'author'  => __( 'Author', 'maera_zf' ),
+	        'sticky'  => __( 'Sticky', 'maera_zf' ),
+	        'date'    => __( 'Date', 'maera_zf' ),
+	        'category'=> __( 'Category', 'maera_zf' ),
+	        'tags'    => __( 'Tags', 'maera_zf' ),
+	        'comments'=> __( 'Comments', 'maera_zf' ),
+	    ),
+	);
+
 		// Backgrounds
 		$controls[] = array(
 			'type'         => 'background',
