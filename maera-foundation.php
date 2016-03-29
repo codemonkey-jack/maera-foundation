@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name:         Maera Foundation Shell
-Plugin URI:
+Plugin URI:			 https://wpsatchel.com
 Description:         A shell for the Maera theme implementing Zurb's Foundation framework.
-Version:             0.1-dev
-Author:              @aristath, @fovoc
-Author URI:          http://press.codes
+Version:             1.0.0
+Author:              WPSatchel
+Contributers:		 @aristath, @fovoc
+Author URI:          https://wpsatchel.com
 */
 
 
